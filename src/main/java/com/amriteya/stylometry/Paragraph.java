@@ -8,7 +8,7 @@ import edu.emory.mathcs.nlp.component.tokenizer.token.Token;
 
 public class Paragraph {
 
-	private static TreeMap<String, Integer> topNWords;
+	private TreeMap<String, Integer> topNWords;
 	
 	private Integer wordFrequency;
 	
@@ -40,7 +40,7 @@ public class Paragraph {
 		this.sentenceFrequency = sentenceFrequency;
 	}
 
-	public static void updateTopNWords(List<Token> tokens) {
+	public void updateTopNWords(List<Token> tokens) {
 		// TODO Auto-generated method stub
 		topNWords = new TreeMap<String, Integer>();
 		for (Token token : tokens) {
@@ -54,15 +54,15 @@ public class Paragraph {
 		
 	}
 
-	public static TreeMap<String, Integer> getTopNWords() {
+	public TreeMap<String, Integer> getTopNWords() {
 		return topNWords;
 	}
 
-	public static void setTopNWords(TreeMap<String, Integer> topNWords) {
-		Paragraph.topNWords = topNWords;
+	public void setTopNWords(TreeMap<String, Integer> topNWords) {
+		this.topNWords = topNWords;
 	}
 
-	public static Map getStaticMap() {
+	public Map getMap() {
 		// TODO Auto-generated method stub
 		return topNWords;
 	}

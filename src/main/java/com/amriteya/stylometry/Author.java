@@ -24,5 +24,25 @@ public class Author {
 		this.books = books;
 	}
 	
+	public String toString(){
+		
+		String returnValue = "";
+		
+		returnValue += (this.name+"\n");
+		returnValue += "~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+		
+		for(Book b : this.books){
+			
+			returnValue += ("Name : "+b.getName()+"\n");
+			returnValue +=("Avg Lines / Paragraph : "+b.getAverageLinesPerParagraph()+"\n");
+			returnValue +=("Avg Words / Sentence : "+b.getAverageWordsPerSentence()+"\n");
+			returnValue +=("Punctuation Density : "+b.getPunctuationDensity()+"\n");
+//			returnValue +=("Top 10 Words : "+b.getWordFrequency()+"\n");
+			
+			returnValue +=("-----------------------------------"+"\n");
+		}
+		
+		return returnValue;
+	}
 	
 }

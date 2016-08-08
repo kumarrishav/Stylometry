@@ -10,7 +10,7 @@ import java.util.Map.Entry;
 
 public class Book {
 
-	private static final int N = 10;
+	private static final int N = 5;
 	
 	private String name;
 
@@ -74,53 +74,53 @@ public class Book {
 			totalSentences += p.getSentenceFrequency();
 			totalPunctuations += p.getPunctuationFrequency();
 		}
-		double d = totalSentences / paragraphList.size();
+		double d = (double)totalSentences / paragraphList.size();
 		this.setAverageLinesPerParagraph(d);
 
-		d = totatWords / totalSentences;
-		this.setAverageWordsPerSentence(d);
+		double d2 = (double)totatWords / totalSentences;
+		this.setAverageWordsPerSentence(d2);
 
-		double punctuationDensity = totalPunctuations / totatWords;
-		this.setPunctuationDensity(punctuationDensity);
+		double d3 = (double) totalPunctuations / totatWords;
+		this.setPunctuationDensity(d3);
 
-		wordFrequency = wordFrequencyFromParagraph();
-		this.setWordFrequency(wordFrequency);
+//		wordFrequency = wordFrequencyFromParagraph();
+//		this.setWordFrequency(wordFrequency);
 
 	}
 
-	private ArrayList<String> wordFrequencyFromParagraph() {
-		// TODO Auto-generated method stub
-		
-		return getMaxFreqWords(N);
-	}
-
-	private static ArrayList<String> getMaxFreqWords(int N) {
-		// TODO Auto-generated method stub
-
-		ArrayList<String> returnList = new ArrayList<String>();
-
-		Set<Entry<String, Integer>> set = Paragraph.getStaticMap().entrySet();
-		List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
-		Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
-			public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-				return (o2.getValue()).compareTo(o1.getValue());
-			}
-		});
-		// IS_SORTED = true;
-
-		for (Map.Entry<String, Integer> entry : list) {
-			returnList.add(entry.getKey());
-		}
-		return limitNWords(returnList, N);
-	}
-	
-	private static ArrayList<String> limitNWords(ArrayList<String> returnList, int N) {
-		// TODO Auto-generated method stub
-
-		ArrayList<String> list = new ArrayList<String>();
-		for (int i = 0; i < N; i++)
-			list.add(returnList.get(i));
-		return list;
-	}
+//	private ArrayList<String> wordFrequencyFromParagraph() {
+//		// TODO Auto-generated method stub
+//		
+//		return getMaxFreqWords();
+//	}
+//
+//	private static ArrayList<String> getMaxFreqWords() {
+//		// TODO Auto-generated method stub
+//
+//		ArrayList<String> returnList = new ArrayList<String>();
+//
+//		Set<Entry<String, Integer>> set = Paragraph.getStaticMap().entrySet();
+//		List<Entry<String, Integer>> list = new ArrayList<Entry<String, Integer>>(set);
+//		Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+//			public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+//				return (o2.getValue()).compareTo(o1.getValue());
+//			}
+//		});
+//		// IS_SORTED = true;
+//
+//		for (Map.Entry<String, Integer> entry : list) {
+//			returnList.add(entry.getKey());
+//		}
+//		return limitNWords(returnList, N);
+//	}
+//	
+//	private static ArrayList<String> limitNWords(ArrayList<String> returnList, int N) {
+//		// TODO Auto-generated method stub
+//
+//		ArrayList<String> list = new ArrayList<String>();
+//		for (int i = 0; i < N; i++)
+//			list.add(returnList.get(i));
+//		return list;
+//	}
 
 }
