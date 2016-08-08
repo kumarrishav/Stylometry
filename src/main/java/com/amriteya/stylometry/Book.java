@@ -10,7 +10,7 @@ import java.util.Map.Entry;
 
 public class Book {
 
-	private static int N = 10;
+	private static final int N = 10;
 	
 	private String name;
 
