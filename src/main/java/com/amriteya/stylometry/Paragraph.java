@@ -1,7 +1,14 @@
 package com.amriteya.stylometry;
 
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+import edu.emory.mathcs.nlp.component.tokenizer.token.Token;
+
 public class Paragraph {
 
+	private static TreeMap<String, Integer> topNWords;
 	
 	private Integer wordFrequency;
 	
@@ -31,6 +38,33 @@ public class Paragraph {
 
 	public void setSentenceFrequency(Integer sentenceFrequency) {
 		this.sentenceFrequency = sentenceFrequency;
+	}
+
+	public static void updateTopNWords(List<Token> tokens) {
+		// TODO Auto-generated method stub
+		topNWords = new TreeMap<String, Integer>();
+		for (Token token : tokens) {
+			if(StopWords.isStopword(token.toString()))
+				continue;
+			if (topNWords.containsKey(token.toString()))
+				topNWords.put(token.toString(), topNWords.get(token.toString()) + 1);
+			else
+				topNWords.put(token.toString(), 1);
+		}
+		
+	}
+
+	public static TreeMap<String, Integer> getTopNWords() {
+		return topNWords;
+	}
+
+	public static void setTopNWords(TreeMap<String, Integer> topNWords) {
+		Paragraph.topNWords = topNWords;
+	}
+
+	public static Map getStaticMap() {
+		// TODO Auto-generated method stub
+		return topNWords;
 	}
 	
 	

@@ -16,18 +16,18 @@ public class Reader {
 	
 	private static String PUNCTUATIONS = "[()’_?:!'\"“.,;{}]+";
 
-	public Book readAndUpdateBook(String filePath) {
+	public Book readAndUpdateBook(String filePath, String bookName) {
 		// TODO Auto-generated method stub
 		
 		
 		BufferedReader br = IOUtils.createBufferedReader(filePath);
-		
+		List<Paragraph> paragraphList = new ArrayList<Paragraph>();
 		try{
 			
 			String line;
 			
 			String paragraph = "";
-			List<Paragraph> paragraphList = new ArrayList<Paragraph>();
+			
 			
 			while((line= br.readLine()) != null){
 				
@@ -46,7 +46,12 @@ public class Reader {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return null;
+		
+		Book b = new Book();
+		
+		b.updateBookInfo(paragraphList);
+		b.setName(bookName);
+		return b;
 	}
 
 	private Paragraph processParagraph(String paragraph) {
@@ -62,6 +67,7 @@ public class Reader {
 		p.setSentenceFrequency(processSentenceFrequency(list));
 		removePunctuations(list);
 		p.setWordFrequency(processWordFrequence(list));
+		Paragraph.updateTopNWords(list);
 		return p;
 	}
 	
@@ -89,7 +95,9 @@ public class Reader {
 	public static void main(String[] args){
 		Reader r = new Reader();
 		
-		r.readAndUpdateBook("src/resources/sample.txt");
+		Token t = new Token("hello");
+		
+//		r.readAndUpdateBook("src/resources/sample.txt");
 	}
 	
 	
