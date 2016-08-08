@@ -2,7 +2,7 @@ package com.amriteya.stylometry;
 
 import java.util.ArrayList;
 
-public class Author {
+public class Book {
 
 	
 	private String name;

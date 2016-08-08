@@ -12,7 +12,7 @@ public class TestClass {
 		
 		String[] books = new String[]{"warandpeace"};
 		
-		Author a = null;
+		Book a = null;
 		Trainer t = null;
 		for(String book : books){
 			

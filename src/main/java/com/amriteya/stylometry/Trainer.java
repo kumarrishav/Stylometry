@@ -2,7 +2,7 @@ package com.amriteya.stylometry;
 
 public class Trainer {
 
-	public void addAuthor(Author a) {
+	public void addAuthor(Book a) {
 		// TODO Auto-generated method stub
 		
 	}

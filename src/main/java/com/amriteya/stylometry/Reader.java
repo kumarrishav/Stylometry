@@ -16,7 +16,7 @@ public class Reader {
 	
 	private static String PUNCTUATIONS = "[()’_?:!'\"“.,;{}]+";
 
-	public Author readAndUpdateBook(String filePath) {
+	public Book readAndUpdateBook(String filePath) {
 		// TODO Auto-generated method stub
 		
 		
